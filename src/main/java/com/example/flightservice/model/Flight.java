@@ -1,10 +1,13 @@
 package com.example.flightservice.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,12 +35,13 @@ public class Flight {
     private Destination destination;
     private String airline;
     private LocalDateTime dateTimeDeparture;
-    private LocalDateTime dateTimeArrival;
-    private Integer scalesNumber;
+    private String transitTime;
     private Boolean allowLuggage;
     private Integer layoverNumber;
     private Long price;
-    // 0 - one way 1- round trip
-    private Boolean tripType;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    public LocalDateTime getDateTimeDeparture() {
+        return dateTimeDeparture;
+    }
 }

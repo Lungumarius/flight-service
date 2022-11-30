@@ -19,13 +19,23 @@ public class FlightController {
     public Flight getFlight( @PathVariable Long id){
         return flightService.getFlightById(id);
     }
-    @GetMapping("/find/")
-    public Flight get( @PathVariable Long id){
-        return flightService.getFlightById(id);
-    }
-    @GetMapping("/find/origin={origin}&destination={destination}")
-    public List<Flight> findFlight( @PathVariable String origin, @PathVariable String destination){
-        return flightService.getFlightsByOriginAndDestination(origin,destination);
+//    @GetMapping("/find/")
+//    public Flight get( @PathVariable Long id){
+//        return flightService.getFlightById(id);
+//    }
+
+    //Optional parameters for
+    @GetMapping("/find/origin={origin}&destination={destination}&day={day}&month={month}&year={year}")
+    public List<Flight> findFlight( @PathVariable String origin, @PathVariable String destination, @PathVariable Integer day, @PathVariable String month,
+                                    @PathVariable Integer year , @RequestParam(name="dayBack",required=false) Integer dayBack,
+                                    @RequestParam(name="monthBack",required=false) String monthBack){
+        if(dayBack!= null && monthBack!=null)
+            return flightService.getFlightsByOriginDestination(origin,destination, day, month, year, dayBack, monthBack);
+        else
+            return flightService.getFlightsByOriginDestination(origin,destination, day, month, year);
+
+
+
     }
 //    @GetMapping("/find/origin={origin}&destination={destination}&airline={airline}" +
 //            "&scales={scales}&allowLuggage={allowLuggage}&schedule={schedule}")
