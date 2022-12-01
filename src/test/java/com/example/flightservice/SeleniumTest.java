@@ -61,7 +61,6 @@ public class SeleniumTest {
         WebElement input7 = driver.findElement(By.xpath("//li[@id='aegean']"));
         input7.click();
 
-
         Thread.sleep(200);
         input6.click();
         Thread.sleep(3000);
