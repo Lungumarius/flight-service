@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -41,9 +42,17 @@ public class SeleniumTest {
         input3.click();
         WebElement input4 = driver.findElement(By.xpath("//li[@id='mad2']"));
         input4.click();
+
+        WebElement input6 = driver.findElement(By.xpath("//input[@id='first']"));
+        //delete the default
+        input6.clear();
+        input6.sendKeys(Keys.CONTROL + "a");
+        input6.sendKeys(Keys.DELETE);
+        //input the new one
+        input6.sendKeys("05/08/2022");
+        Thread.sleep(7000);
         WebElement input5 = driver.findElement(By.xpath("//a[@id='search']"));
         input5.click();
-
 
 //            System.out.println(rowCount2);
 //            assertEquals(rowCount, rowCount2);
