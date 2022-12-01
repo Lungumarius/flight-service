@@ -24,6 +24,10 @@ public class FlightController {
 //        return flightService.getFlightById(id);
 //    }
 
+//    @PostMapping("/proceedToCheckout/{id}")
+//    public Flight proceedToCheckout(@PathVariable Long id){
+//
+//    }
     //Optional parameters for
     @GetMapping("/find/origin={origin}&destination={destination}&day={day}&month={month}&year={year}")
     public List<Flight> findFlight( @PathVariable String origin, @PathVariable String destination, @PathVariable Integer day, @PathVariable String month,

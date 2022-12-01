@@ -37,4 +37,5 @@ public class Flight_service_tests {
         Assert.assertEquals(flightService.getFlightsByOriginDestination(flight.getOrigin().toString(), flight.getDestination().toString(),
                 flight.getDateTimeDeparture().getDayOfMonth(), flight.getDateTimeDeparture().getMonth().toString(), flight.getDateTimeDeparture().getYear()),list);
     }
+
 }
